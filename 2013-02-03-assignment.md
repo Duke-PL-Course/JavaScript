@@ -19,9 +19,9 @@ function multiples (limit) {
 Example Tests:
 
 ```javascript
-multiples(1);   // 0
-multiples(10);  // 23
-multiples(16);  // 60
+multiples(1);   // => 0
+multiples(10);  // => 23
+multiples(16);  // => 60
 ```
 
 ### Hint
@@ -47,8 +47,8 @@ function map (xxs, fn) {
 Example Tests:
 
 ```javascript
-map([1, 2, 3, 4, 5], function (x) { return x * 2; });   // [2, 4, 6, 8, 10]
-map(['foo', 'bar', 'baz'], function (x) { return x + ' is awesome'; }); // ['foo is awesome', 'bar is awesome', 'baz is awesome']
+map([1, 2, 3, 4, 5], function (x) { return x * 2; });   // => [2, 4, 6, 8, 10]
+map(['foo', 'bar', 'baz'], function (x) { return x + ' is awesome'; }); // => ['foo is awesome', 'bar is awesome', 'baz is awesome']
 ```
 
 ### Hint
