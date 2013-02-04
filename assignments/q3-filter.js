@@ -1,3 +1,3 @@
-function filter (xxs, condition) {
+function filter (xs, condition) {
   // ...
 }

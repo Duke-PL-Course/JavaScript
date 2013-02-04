@@ -36,10 +36,10 @@ Note that `limit` is **non-inclusive**, so if the limit was `15`, the list of nu
 
 The `map` function is one that we saw in Ruby's [`Enumerable`][enumerable] module, and we've seen it in [underscore.js][underscore] as well. We will continue to see it again and again, especially when we explore some of the more functional languages. Because it is such an essential function, we want you to understand how it works by implementing it. In addition, you'll see that the next two questions are in the same vein and ask you to implement two more common functions that are seen in functional languages.
 
-`map` will take an array `xxs` of length greater than or equal to 0, and apply a function `fn`, to all elements of the array. `fn` will take a single parameter, and it is the job of `map` to pass each element of the array to `fn`. What `map` will return is an array of the same length as the input; however, the elements of the array will be transformed by `fn`. Please note that you should not change the original values of the input array `xxs`; it should be treated as **immutable**. So, you should create a new array to be returned.
+`map` will take an array `xs` of length greater than or equal to 0, and apply a function `fn`, to all elements of the array. `fn` will take a single parameter, and it is the job of `map` to pass each element of the array to `fn`. What `map` will return is an array of the same length as the input; however, the elements of the array will be transformed by `fn`. Please note that you should not change the original values of the input array `xs`; it should be treated as **immutable**. So, you should create a new array to be returned.
 
 ```javascript
-function map (xxs, fn) {
+function map (xs, fn) {
   // ...
 }
 ```
@@ -64,12 +64,12 @@ The type of the returned array does not need to match that of the input array.
 
 ## Q3: Implement Filter
 
-`filter`, like `map`, is a very common function in functional languages. Filter will look through each value in an array `xxs`, similarly to `map`, but instead of returning an array of transformed values, an array of values that meet the given criteria will be returned. The criteria is defined by a function `condition` that is passed as a paremeter, and the return value of `condition` will be a boolean, or something that can be evaluated in an `if` statement.
+`filter`, like `map`, is a very common function in functional languages. Filter will look through each value in an array `xs`, similarly to `map`, but instead of returning an array of transformed values, an array of values that meet the given criteria will be returned. The criteria is defined by a function `condition` that is passed as a paremeter, and the return value of `condition` will be a boolean, or something that can be evaluated in an `if` statement.
 
-The contents of the input array `xxs` should remain **immutable**, and the order of the output array should be [stable][] with respect to the input array. In other words, the order should be relatively the same, even if some items are omitted: things should not be shuffled around.
+The contents of the input array `xs` should remain **immutable**, and the order of the output array should be [stable][] with respect to the input array. In other words, the order should be relatively the same, even if some items are omitted: things should not be shuffled around.
 
 ```javascript
-function filter (xxs, condition) {
+function filter (xs, condition) {
   // ...
 }
 ```

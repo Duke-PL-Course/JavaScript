@@ -1,3 +1,3 @@
-function map (xxs, fn) {
+function map (xs, fn) {
   // ...
 }
