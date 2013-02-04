@@ -194,8 +194,6 @@ waterfall([
     callback(null, foo + 'bar');
   }
 ], function (err, result) {
-  // usually it is not idiomatic to return multiple result parameters;
-  // however, we want to show that it is possible
   console.log(err, result);  // > "oh nooooez" undefined
 });
 ```
