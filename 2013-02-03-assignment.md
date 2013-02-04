@@ -143,7 +143,7 @@ function (arg1, arg2, ..., callback) {
 In addition, the `waterfall` function is given a final `callback` function that should be called after the last task finishes. This callback will have a signature of:
 
 ```javascript
-function (err, arg1, arg2, ...) {
+function (err, result1, result2, ...) {
 }
 ```
 
@@ -154,7 +154,7 @@ Because asynchronous tasks often result in some sort of error (poor connections,
  * @param tasks is an array of functions
  * @param callback is the final function
  */
-function waterfall(tasks, callback) {
+function waterfall (tasks, callback) {
   // ...
 }
 ```
