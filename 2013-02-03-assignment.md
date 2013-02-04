@@ -49,6 +49,7 @@ Example Tests:
 ```javascript
 map([1, 2, 3, 4, 5], function (x) { return x * 2; });   // => [2, 4, 6, 8, 10]
 map(['foo', 'bar', 'baz'], function (x) { return x + ' is awesome'; }); // => ['foo is awesome', 'bar is awesome', 'baz is awesome']
+map([1, 2, 3], function (x) { return 'and a ' + x; }); // => ['and a 1', 'and a 2', 'and a 3']
 ```
 
 ### Hint
@@ -57,11 +58,35 @@ map(['foo', 'bar', 'baz'], function (x) { return x + ' is awesome'; }); // => ['
 
 Some implementations of `map` in functional languages prefer a recursive implementation involving pattern matching; however, in JavaScript, it will most likely be easier to use an iterative implementation. The choice is ultimately up to you, however.
 
+The type of the returned array does not need to match that of the input array.
+
 ---
 
 ## Q3: Implement Filter
 
+`filter`, like `map`, is a very common function in functional languages. Filter will look through each value in an array `xxs`, similarly to `map`, but instead of returning an array of transformed values, an array of values that meet the given criteria will be returned. The criteria is defined by a function `condition` that is passed as a paremeter, and the return value of `condition` will be a boolean, or something that can be evaluated in an `if` statement.
+
+The contents of the input array `xxs` should remain **immutable**, and the order of the output array should be [stable][] with respect to the input array. In other words, the order should be relatively the same, even if some items are omitted: things should not be shuffled around.
+
+```javascript
+function filter (xxs, condition) {
+  // ...
+}
+```
+
+Example Tests:
+
+```javascript
+filter([1, 2, 3, 4, 5], function (x) { return x % 2 === 0; });              // => [2, 4]
+filter([1, 2, 3, 4, 5], function (x) { return x % 2 === 1; });              // => [1, 3, 5]
+filter(['I', 'am', 'fat', 'catz'], function (x) { return x.length >= 3; }); // => ['fat', 'catz']
+```
+
 ### Hint
+
+Much of the same structure used in `map` can be used in `filter`.
+
+The returned value of `condition(x)`, where `x` is a single element in the input array, will be an expression that can be evaluated in an `if` statement.
 
 ---
 
