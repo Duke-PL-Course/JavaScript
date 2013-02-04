@@ -1,3 +1,3 @@
-function multiples(limit) {
+function multiples (limit) {
   // ...
 }
