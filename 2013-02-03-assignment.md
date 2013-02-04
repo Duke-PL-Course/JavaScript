@@ -92,7 +92,30 @@ The returned value of `condition(x)`, where `x` is a single element in the input
 
 ## Q4: Implement Reduce
 
+`reduce` is a slightly tricker function than the previous two, because it requires keeping track of something in addition to having an optional **seed value**, also known as the initial value. The basic duty of `reduce` is to boil down a list of elements into a single element. Even though this sounds mundane, it can be used very creatively to implement much more complex functionality.
+
+`reduce` takes a list `xs`, an iterating function `fn`, and an optional `seed`. The list `xs` will be an arbitrary list of elements. The iterating function `fn`, will be a function that takes in two parameters, the first of which being the accumulating `seed` value. The `seed` can be initially provided in the function call to `reduce`; however, if it is not specified, the first value of the list should be used as the seed. Each successive step in `reduce` will essentially replace what was originally the `seed`, with what is returned from the function `fn`. Hopefully, the examples below will clarify.
+
+```javascript
+function reduce (xs, fn, seed) {
+  // NOTE: that seed is optional; you should give the appropriate default in the function body
+  // ...
+}
+```
+
+Example Tests:
+
+```javascript
+reduce([1, 2, 3, 4, 5, 6], function (memo, x) { return memo + x; });        // => 21
+reduce([1, 2, 3, 4, 5, 6], function (memo, x) { return memo + x; }, 21);    // => 42
+reduce([1, 2, 3], function (memo, x) { return memo.concat([x * 2]); }, []); // => [2, 4, 6]
+```
+
 ### Hint
+
+Choosing an appropirate default value for the `seed` may be tricky. The flow should be given seed -> first element -> undefined. So if an empty array is passed in, and no seed is provided, the result should be undefined.
+
+A memoizer should be kept that is initialized to the value of the `seed`, and then passed along to the function `fn` along with each successive element. The value of this memoizer should be being set at each step.
 
 ---
 
