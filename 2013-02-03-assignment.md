@@ -127,9 +127,85 @@ A memoizer should be kept that is initialized to the value of the `seed`, and th
 
 ## [Bonus] Async Waterfall
 
+Nested callback functions can get out of hand extremely quickly. There have been many attempts to solve this through different forms of control flow. One popular solution is the [async.js][] library. This library, in addition to providing some utility tools for collections and memoization, provides many useful control flow constructs. One of which is [`waterfall`][waterfall]. This function will run a series of callback functions, called tasks, consecutively (not in parallel), and it also allows you to pass arguments to the next tasks. Note that the structure of each task looks like the following:
+
+```javascript
+// there can by any number of arguments,
+// but the last argument must be a reference to the next task
+function (arg1, arg2, ..., callback) {
+  // perform task
+  callback(null, 'foo', 'bar'); // call the next task
+                                // if the first argument is not falsy, an error occured,
+                                // and you should directly call the final callback with the error
+}
+```
+
+In addition, the `waterfall` function is given a final `callback` function that should be called after the last task finishes. This callback will have a signature of:
+
+```javascript
+function (err, arg1, arg2, ...) {
+}
+```
+
+Because asynchronous tasks often result in some sort of error (poor connections, etc.), the `waterfall` function provides a means of breaking out early. The first argument when calling the callback should be falsy (usually null) if no error has occured. If that value ends up being truthy, however, then the `waterfall` implementation should directly call the final callback with the error value (the first parameter). So, the `waterfall` function should have the following signature:
+
+```javascript
+/**
+ * @param tasks is an array of functions
+ * @param callback is the final function
+ */
+function waterfall(tasks, callback) {
+  // ...
+}
+```
+
+This will hopefully be much clearer with some examples:
+
+```javascript
+// example with non-erroring tasks
+waterfall([
+  // the first task will always have the signature function (callback)
+  function (callback) {
+    // do stuff
+    callback(null, 'one', 'two');
+  },
+  function (arg1, arg2, callback) {
+    callback(null, arg1 + '1', arg2 + '2');
+  }
+], function (err, result1, result2) {
+  // usually it is not idiomatic to return multiple result parameters;
+  // however, we want to show that it is possible
+  console.log(err, result1, result2);  // > null "one1" "two2"
+});
+
+// example with an erroring tasks
+waterfall([
+  function (callback) {
+    if (true) {
+      // uh-oh, I error out
+      callback("oh nooooez");
+    } else {
+      callback(null, 'would otherwise be foo');
+    }
+  },
+  // the second task should never be called
+  function (foo, callback) {
+    console.log("I'm never called");
+    callback(null, foo + 'bar');
+  }
+], function (err, result) {
+  // usually it is not idiomatic to return multiple result parameters;
+  // however, we want to show that it is possible
+  console.log(err, result);  // > "oh nooooez" undefined
+});
+```
+
+### Hint
 
 <!-- links -->
+[async.js]: https://github.com/caolan/async
 [enumerable]: http://ruby-doc.org/core-1.9.3/Enumerable.html
-[underscore]: http://underscorejs.org
-[issues]: https://github.com/Duke-PL-Course/JavaScript/issues?state=open
 [help]: https://help.github.com/articles/fork-a-repo
+[issues]: https://github.com/Duke-PL-Course/JavaScript/issues?state=open
+[underscore]: http://underscorejs.org
+[waterfall]: https://github.com/caolan/async#waterfall
