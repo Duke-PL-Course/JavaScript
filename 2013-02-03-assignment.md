@@ -8,7 +8,27 @@ Again, please feel free to post questions on [github Issues page][issues] for th
 
 ## Q1: Multiples of 3 and 5
 
+Find the sum of all positive multiples of 3 or 5 below a specified number (`limit`).
+
+```javascript
+function multiples(limit) {
+  // ...
+}
+```
+
+Example Tests:
+
+```javascript
+multiples(1)    // 0
+multiples(10)   // 23
+multiples(16)   // 60
+```
+
 ### Hint
+
+Numbers that are both multiples of 3 and 5 should only be counted once. For example, **15** should only be counted as once.
+
+Note that `limit` is **non-inclusive**, so if the limit was `15`, the list of numbers we would be interested in are `[3, 5, 6, 9]`.
 
 ---
 
