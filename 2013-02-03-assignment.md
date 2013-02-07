@@ -113,9 +113,20 @@ reduce([1, 2, 3], function (memo, x) { return memo.concat([x * 2]); }, []); // =
 
 ### Hint
 
-Choosing an appropirate default value for the `seed` may be tricky. The flow should be given seed -> first element -> undefined. So if an empty array is passed in, and no seed is provided, the result should be undefined.
+Choosing an appropirate default value for the `seed` may be tricky. The flow should be given seed -> first element -> `undefined`. So if an empty array is passed in, and no seed is provided, the result should be `undefined`.
 
 A memoizer should be kept that is initialized to the value of the `seed`, and then passed along to the function `fn` along with each successive element. The value of this memoizer should be being set at each step.
+
+To check for whether a seed value is passed in can be done with the following:
+```javascript
+function reduce (xs, fn, seed) {
+  if (typeof seed === 'undefined') {
+    // seed value was not passed in
+  } else {
+    // seed value was passed in
+  }
+}
+
 
 ---
 
