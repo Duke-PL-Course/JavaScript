@@ -126,6 +126,7 @@ function reduce (xs, fn, seed) {
     // seed value was passed in
   }
 }
+```
 
 ---
 
