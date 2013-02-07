@@ -127,13 +127,6 @@ function reduce (xs, fn, seed) {
   }
 }
 
-
----
-
-## Q5: Prototypal Inheritance
-
-### Hint
-
 ---
 
 ## [Bonus] Async Waterfall
@@ -212,6 +205,7 @@ waterfall([
 ### Hint
 
 <!-- links -->
+
 [async.js]: https://github.com/caolan/async
 [enumerable]: http://ruby-doc.org/core-1.9.3/Enumerable.html
 [help]: https://help.github.com/articles/fork-a-repo
