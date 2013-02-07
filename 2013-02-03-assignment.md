@@ -6,7 +6,7 @@ Again, please feel free to post questions on [github Issues page][issues] for th
 
 ---
 
-## Q1: Multiples of 3 and 5
+## Q1: Multiples of 3 and 5 (25%)
 
 Find the sum of all positive multiples of 3 or 5 below a specified number (`limit`).
 
@@ -32,7 +32,7 @@ Note that `limit` is **non-inclusive**, so if the limit was `15`, the list of nu
 
 ---
 
-## Q2: Implement Map
+## Q2: Implement Map (25%)
 
 The `map` function is one that we saw in Ruby's [`Enumerable`][enumerable] module, and we've seen it in [underscore.js][underscore] as well. We will continue to see it again and again, especially when we explore some of the more functional languages. Because it is such an essential function, we want you to understand how it works by implementing it. In addition, you'll see that the next two questions are in the same vein and ask you to implement two more common functions that are seen in functional languages.
 
@@ -62,7 +62,7 @@ The type of the returned array does not need to match that of the input array.
 
 ---
 
-## Q3: Implement Filter
+## Q3: Implement Filter (25%)
 
 `filter`, like `map`, is a very common function in functional languages. Filter will look through each value in an array `xs`, similarly to `map`, but instead of returning an array of transformed values, an array of values that meet the given criteria will be returned. The criteria is defined by a function `condition` that is passed as a paremeter, and the return value of `condition` will be a boolean, or something that can be evaluated in an `if` statement.
 
@@ -90,7 +90,7 @@ The returned value of `condition(x)`, where `x` is a single element in the input
 
 ---
 
-## Q4: Implement Reduce
+## Q4: Implement Reduce (25%)
 
 `reduce` is a slightly tricker function than the previous two, because it requires keeping track of something in addition to having an optional **seed value**, also known as the initial value. The basic duty of `reduce` is to boil down a list of elements into a single element. Even though this sounds mundane, it can be used very creatively to implement much more complex functionality.
 
@@ -130,7 +130,7 @@ function reduce (xs, fn, seed) {
 
 ---
 
-## [Bonus] Async Waterfall
+## [Bonus] Async Waterfall (50%)
 
 Nested callback functions can get out of hand extremely quickly. There have been many attempts to solve this through different forms of control flow. One popular solution is the [async.js][] library. This library, in addition to providing some utility tools for collections and memoization, provides many useful control flow constructs. One of which is [`waterfall`][waterfall]. This function will run a series of callback functions, called tasks, consecutively (not in parallel), and it also allows you to pass arguments to the next tasks. Note that the structure of each task looks like the following:
 
@@ -202,8 +202,6 @@ waterfall([
   console.log(err, result);  // > "oh nooooez" undefined
 });
 ```
-
-### Hint
 
 <!-- links -->
 
