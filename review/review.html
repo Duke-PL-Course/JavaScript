@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-  <head><title>JavaScript Review Problem: Identifying Child Elements</title></head>
+  <head>
+    <title>JavaScript Review Problem: Identifying Child Elements</title>
+    <style>
+      div#container {
+        display: block;
+        width: 200px;
+        margin: auto;
+      }
+      h3 {
+        text-align: center;
+      }
+      ul {
+        padding: 15px 25px;
+        border: 1px solid #000;
+      }
+      li {
+        margin: 5px 0;
+        padding: 5px;
+        border: 1px solid #00F;
+        font-weight: bold;
+        text-align: center;
+        list-style: none;
+      }
+    </style>
+  </head>
   <body>
-    <h3 id="list-title"></h3>
-    <ul id="list" style="background-color: #EEE;"></ul>
+    <div id="container">
+      <h3 id="list-title"></h3>
+      <ul id="list" style="background-color: #EEE;"></ul>
+    </div>
     <script>
       var numItems = Math.floor(Math.random() * 10 + 5),
           list = document.getElementById('list'),
