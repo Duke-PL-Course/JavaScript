@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+  <head><title>JavaScript Review Problem: Identifying Child Elements</title></head>
+  <body>
+    <h3 id="list-title"></h3>
+    <ul id="list" style="background-color: #EEE;"></ul>
+    <script>
+      var numItems = Math.floor(Math.random() * 10 + 5),
+          list = document.getElementById('list'),
+          i, currItem;
+      document.getElementById('list-title').innerHTML = numItems + "-list";
+      console.log('Generating ' + numItems + ' list items.');
+      for (i = 0; i < numItems; i++) {
+        currItem = document.createElement('li');
+        currItem.innerHTML = "Click me!";
+        list.appendChild(currItem);
+      }
+    </script>
+    <script src="./review.js"></script>
+  </body>
+</html>
